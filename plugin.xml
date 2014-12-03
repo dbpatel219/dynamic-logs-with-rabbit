@@ -1,0 +1,25 @@
+<plugin name='dynamic-logs' version='0.1' grailsVersion='2.1 &gt; *'>
+  <author>Dharmesh Patel</author>
+  <authorEmail>dbpatel219@gmail.com</authorEmail>
+  <title>Dynamic Logs Plugin</title>
+  <description>This plugin allows you to dynamically change log levels via Rabbit Messages.  This will allow you to change log levels on all instances listening to a particular topic.
+</description>
+  <documentation>http://grails.org/plugin/dynamic-logs</documentation>
+  <type>DynamicLogsGrailsPlugin</type>
+  <resources>
+    <resource>DynamicLoggingConfig</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins>
+    <compile>
+      <plugin group='org.grails.plugins' name='rabbitmq' version='1.0.0' />
+    </compile>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
