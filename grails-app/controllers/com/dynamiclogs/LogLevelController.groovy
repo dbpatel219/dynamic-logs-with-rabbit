@@ -18,10 +18,9 @@ class LogLevelController {
         }
 
         def message = convertCommandToMessage(cmd)
-
         logLevelService.send(message)
 
-        flash.message = "Log Level Change message sent ${cmd.toString()}"
+        flash.message = "Log Level Change message sent: ${cmd.toString()}"
 
         render(view: "index", model: [cmd: cmd])
     }
