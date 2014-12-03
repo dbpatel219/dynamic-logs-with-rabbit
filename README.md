@@ -1,4 +1,38 @@
 dynamic-logs
 ============
 
-Change Application Log Levels via Rabbit MQ messages at Runtime
+Change Application Log Levels via Rabbit MQ messages at Runtime.  
+
+- Great for large scale systems where you'd like to dynamically change your log levels on multiple application instances without requiring code changes.
+
+
+Installation
+-------
+
+Upon install, this will create a new Rabbit Exchange for you called ```logLevelExchange``` of type fanout
+
+
+Usage
+-------
+
+**Via Controller**
+
+A controller ```LogLevelController``` and view is provided to change the log levels from.  Simply go to ```http[s]://yourapp.com/logLevel```
+
+Simply fill in the form and submit.  App Name is the application you would like to change the log level for. ```LogLevelListenerService``` matches Grails ```application.properties "app.name"``` against the one that is passed in from the form.
+
+
+**NOTE:** Highly recommend you lock down ```logLevel``` endpoint via Spring Security.
+
+**Via Service**
+
+Inject logLevelService into your services or controllers :
+
+    def logLevelService
+
+Create a ```DynamicLogLevelMsg```
+
+- ```appName``` is the Application name you want to target.  Uses Grails ```application.properties "app.name"```
+- ```logLevel``` is log level as a String you would like to change too: ['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']
+- ```loggerName``` is the package or class you would like to change the log level for
+
