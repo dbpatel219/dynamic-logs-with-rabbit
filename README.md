@@ -26,13 +26,20 @@ Simply fill in the form and submit.  App Name is the application you would like 
 
 **Via Service**
 
-Inject logLevelService into your services or controllers :
-
-    def logLevelService
-
-Create a ```DynamicLogLevelMsg```
+1. Inject logLevelService into your services or controllers :
+2. Create a ```DynamicLogLevelMsg```
 
 - ```appName``` is the Application name you want to target.  Uses Grails ```application.properties "app.name"```
 - ```logLevel``` is log level as a String you would like to change too: ['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']
 - ```loggerName``` is the package or class you would like to change the log level for
 
+```
+	class Foo { 
+		def logLevelService
+
+		def changeAllServiceLogLevelsToInfo() {
+	        def message = new DynamicLogLevelMsg("myApp", "grails.app.services", "INFO")
+    	    logLevelService.send(message)
+   		}
+	}
+```
