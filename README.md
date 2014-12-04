@@ -34,8 +34,8 @@ Usage
 2. Create a ```DynamicLogLevelMsg```
 
 - ```appName``` is the Application name you want to target.  Uses Grails **application.properties "app.name"**
-- ```logLevel``` is log level as a String you would like to change too: *['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']*
 - ```loggerName``` is the package or class you would like to change the log level for
+- ```logLevel``` is log level as a String you would like to change too: *['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']*
 
 ```
 	class Foo { 
