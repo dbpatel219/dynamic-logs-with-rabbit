@@ -37,6 +37,7 @@ Usage
 - ```loggerName``` is the package or class you would like to change the log level for
 - ```logLevel``` is log level as a String you would like to change too: *['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']*
 
+**Example**
 ```
 	class Foo { 
 		def logLevelService
