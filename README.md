@@ -21,9 +21,9 @@ Usage
 
 	```dynamiclogging.enable.logLevelController = true```
 
-A controller ```LogLevelController``` and view is provided to change the log levels from.  Simply go to _http[s]://yourapp.com/logLevel_
+2. A controller ```LogLevelController``` and view is provided to change the log levels from.  Simply go to _http[s]://yourapp.com/logLevel_
 
-Simply fill in the form and submit.  App Name is the application you would like to change the log level for. ```LogLevelListenerService``` matches Grails **application.properties "app.name"** against the one that is passed in from the form.
+3. Simply fill in the form and submit.  App Name is the application you would like to change the log level for. ```LogLevelListenerService``` matches Grails **application.properties "app.name"** against the one that is passed in from the form.
 
 
 **NOTE:** Highly recommend you lock down ```logLevel``` endpoint via Spring Security.
@@ -34,7 +34,7 @@ Simply fill in the form and submit.  App Name is the application you would like 
 2. Create a ```DynamicLogLevelMsg```
 
 - ```appName``` is the Application name you want to target.  Uses Grails **application.properties "app.name"**
-- ```logLevel``` is log level as a String you would like to change too: ['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']
+- ```logLevel``` is log level as a String you would like to change too: *['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']*
 - ```loggerName``` is the package or class you would like to change the log level for
 
 ```
