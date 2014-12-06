@@ -15,17 +15,11 @@ class DynamicLogLevelMsg {
         this.loggerName = loggerName
     }
 
-    public Map toMap(Map toAdd = null) {
-        def root = [appName: appName, logLevel: logLevel, loggerName: loggerName]
-
-        if (toAdd) {
-            root.putAll(toAdd)
-        }
-
-        return root
+    Map toMap(Map toAdd = null) {
+        [appName: appName, logLevel: logLevel, loggerName: loggerName] + (toAdd ?: [:])
     }
 
-    public String toString() {
-        return (toMap() as JSON) as String
+    String toString() {
+        toMap() as JSON
     }
 }
