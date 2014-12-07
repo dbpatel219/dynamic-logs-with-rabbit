@@ -39,14 +39,14 @@
                         </label>
                         <g:textField name="loggerName" required="" value="${cmd?.loggerName}"/>
                     </div>
-                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'level', 'error')} required">
-                        <label for="level">
-                            <g:message code="cmd.level.label" default="Log Level" />
+                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'logLevel', 'error')} required">
+                        <label for="logLevel">
+                            <g:message code="cmd.logLevel.label" default="Log Level" />
                             <span class="required-indicator">*</span>
                         </label>
                         <g:select
-                            id="level"
-                            name='level'
+                            id="logLevel"
+                            name='logLevel'
                             value="DEBUG"
                             from="${logLevelNames}"
                             style="width: 10em;">

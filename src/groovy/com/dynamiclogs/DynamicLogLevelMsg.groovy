@@ -1,7 +1,9 @@
 package com.dynamiclogs
 
 import grails.converters.JSON
+import grails.validation.Validateable
 
+@Validateable
 class DynamicLogLevelMsg {
     String appName
     String logLevel

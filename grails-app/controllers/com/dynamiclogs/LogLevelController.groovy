@@ -10,33 +10,18 @@ class LogLevelController {
     def logLevelService
 
     def index() {
-        [cmd: new LogLevelChangeCommand(), applicationName: APP_NAME, logLevelNames: LOG_LEVEL_NAMES]
+        [cmd: new DynamicLogLevelMsg(), applicationName: APP_NAME, logLevelNames: LOG_LEVEL_NAMES]
     }
 
-    def changeLogLevel(LogLevelChangeCommand cmd) {
+    def changeLogLevel(DynamicLogLevelMsg cmd) {
         if (cmd.hasErrors()) {
             throw new Exception(400, 'Invalid inputs')
         }
 
-        def message = convertCommandToMessage(cmd)
-        logLevelService.send(message)
+        logLevelService.send(cmd)
 
         flash.message = "Log Level Change message sent: $cmd"
 
         render(view: "index", model: [cmd: cmd, applicationName: APP_NAME, logLevelNames: LOG_LEVEL_NAMES])
-    }
-
-    private DynamicLogLevelMsg convertCommandToMessage(LogLevelChangeCommand cmd) {
-        new DynamicLogLevelMsg(cmd.appName, cmd.level, cmd.loggerName)
-    }
-}
-
-class LogLevelChangeCommand {
-    String appName
-    String loggerName
-    String level
-
-    String toString() {
-        "$appName - $loggerName - $level"
     }
 }
