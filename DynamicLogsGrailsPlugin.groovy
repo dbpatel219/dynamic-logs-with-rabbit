@@ -1,3 +1,5 @@
+import grails.util.Environment
+
 class DynamicLogsGrailsPlugin {
     def version = "0.2"
     def grailsVersion = "2.1 > *"
@@ -12,7 +14,7 @@ class DynamicLogsGrailsPlugin {
 
     def doWithSpring = {
         try {
-            application.config.merge(new ConfigSlurper().parse(application.classLoader.loadClass('DynamicLoggingConfig')))
+            application.config.merge(new ConfigSlurper(Environment.current.name).parse(application.classLoader.loadClass('DynamicLoggingConfig')))
         } catch (e) {
             log.error('Unable to load DynamicLoggingConfig')
         }
