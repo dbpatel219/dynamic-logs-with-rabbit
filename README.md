@@ -1,4 +1,4 @@
-dynamic-logs
+dynamic-logs-with-rabbit
 ============
 
 Change Application Log Levels via Rabbit MQ messages at Runtime.
