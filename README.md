@@ -49,4 +49,4 @@ Usage
 
 ### Contributors
 
-Thanks to [Burt Beckwith](https://github.com/burtbeckwith) for their contributions
+Thanks to [Burt Beckwith](https://github.com/burtbeckwith) for his contributions & feedback.
