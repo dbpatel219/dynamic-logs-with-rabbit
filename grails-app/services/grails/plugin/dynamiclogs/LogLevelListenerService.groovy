@@ -1,17 +1,14 @@
-package com.dynamiclogs
+package grails.plugin.dynamiclogs
 
 import grails.converters.JSON
+import grails.util.Holders
 import grails.util.Metadata
 
 import org.apache.log4j.Level
 import org.apache.log4j.LogManager
-import org.springframework.beans.factory.InitializingBean
 
-class LogLevelListenerService implements InitializingBean {
-
-    static transactional = false
-
-    private String rabbitSubscribe
+class LogLevelListenerService {
+    static rabbitSubscribe = Holders.getConfig().dynamiclogging.exchange.name
 
     private final String currentAppName = Metadata.current.getApplicationName()
 
@@ -28,12 +25,8 @@ class LogLevelListenerService implements InitializingBean {
         if (logger && logLevel) {
             log.info("Changing Log Level $msg.loggerName --> $logLevel")
             logger.level = logLevel
-        } else { // Throw Exception or just log it????
+        } else {
             log.error("Either loggerName or logLevel was not a valid input.  $msg")
         }
-    }
-
-    void afterPropertiesSet() {
-        rabbitSubscribe = grailsApplication.config.dynamiclogging.exchange.name
     }
 }

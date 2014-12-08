@@ -1,4 +1,4 @@
-package com.dynamiclogs
+package grails.plugin.dynamiclogs
 
 import org.springframework.beans.factory.InitializingBean
 

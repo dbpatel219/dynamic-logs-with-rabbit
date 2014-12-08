@@ -1,4 +1,4 @@
-package com.dynamiclogs
+package grails.plugin.dynamiclogs
 
 import grails.converters.JSON
 import grails.validation.Validateable
