@@ -1,4 +1,4 @@
-package com.dynamiclogs
+package grails.plugin.dynamiclogs
 
 import grails.util.Metadata
 
@@ -14,10 +14,6 @@ class LogLevelController {
     }
 
     def changeLogLevel(DynamicLogLevelMsg cmd) {
-        if (cmd.hasErrors()) {
-            throw new Exception(400, 'Invalid inputs')
-        }
-
         logLevelService.send(cmd)
 
         flash.message = "Log Level Change message sent: $cmd"
