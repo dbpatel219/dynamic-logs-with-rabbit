@@ -1,49 +1,27 @@
 package com.dynamiclogs
 
-import com.dynamiclogs.DynamicLogLevelMsg
+import grails.util.Metadata
 
 class LogLevelController {
 
-    static defaultAction = "index"
+    private static final List<String> LOG_LEVEL_NAMES = ['ALL','DEBUG','ERROR','FATAL','INFO','OFF','TRACE','WARN']
+    private static final String APP_NAME = Metadata.current.getApplicationName()
 
     def logLevelService
 
     def index() {
-        [cmd: new LogLevelChangeCommand()]
+        [cmd: new DynamicLogLevelMsg(), applicationName: APP_NAME, logLevelNames: LOG_LEVEL_NAMES]
     }
 
-    def changeLogLevel(LogLevelChangeCommand cmd) {
-        if (! cmd.validate()){
+    def changeLogLevel(DynamicLogLevelMsg cmd) {
+        if (cmd.hasErrors()) {
             throw new Exception(400, 'Invalid inputs')
         }
 
-        def message = convertCommandToMessage(cmd)
-        logLevelService.send(message)
+        logLevelService.send(cmd)
 
-        flash.message = "Log Level Change message sent: ${cmd.toString()}"
+        flash.message = "Log Level Change message sent: $cmd"
 
-        render(view: "index", model: [cmd: cmd])
-    }
-
-    private DynamicLogLevelMsg convertCommandToMessage(LogLevelChangeCommand cmd) {
-        def message = new DynamicLogLevelMsg(cmd.appName, cmd.level, cmd.loggerName)
-
-        return message
-    }
-}
-
-class LogLevelChangeCommand {
-    String appName
-    String loggerName
-    String level
-
-    static constraints = {
-        appName(nullable: false)
-        loggerName(nullable: false)
-        level(nullable: false)
-    }
-
-    String toString() {
-        "$appName - $loggerName - $level"
+        render(view: "index", model: [cmd: cmd, applicationName: APP_NAME, logLevelNames: LOG_LEVEL_NAMES])
     }
 }

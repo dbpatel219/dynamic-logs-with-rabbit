@@ -1,12 +1,20 @@
 package com.dynamiclogs
 
-import grails.util.Holders
+import org.springframework.beans.factory.InitializingBean
 
-class LogLevelService {
+class LogLevelService implements InitializingBean {
 
-    static final String EXCHANGE = Holders.getConfig().dynamiclogging.exchange.name
+    static transactional = false
+
+    def grailsApplication
+
+    private String exchange
 
     def send(DynamicLogLevelMsg message) {
-        rabbitSend EXCHANGE, "", message as String
+        rabbitSend exchange, "", message.toString()
+    }
+
+    void afterPropertiesSet() {
+        exchange = grailsApplication.config.dynamiclogging.exchange.name
     }
 }
