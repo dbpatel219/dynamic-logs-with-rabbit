@@ -46,3 +46,7 @@ Usage
             logLevelService.send new DynamicLogLevelMsg("myApp", "grails.app.services", "INFO")
         }
     }
+
+### Contributors
+
+Thanks to [Burt Beckwith](https://github.com/burtbeckwith) for their contributions
