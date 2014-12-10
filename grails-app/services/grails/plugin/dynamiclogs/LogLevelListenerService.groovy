@@ -13,6 +13,7 @@ class LogLevelListenerService {
     private final String currentAppName = Metadata.current.getApplicationName()
 
     void handleMessage(message) {
+        log.info("Recieved Log Level change message - ${message}")
         def msg = JSON.parse(message)
 
         if (msg.appName != currentAppName) {
