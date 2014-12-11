@@ -12,9 +12,11 @@ class DynamicLogsWithRabbitGrailsPlugin {
     def issueManagement = [system: "GITHUB", url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit/issues"]
     def scm = [ url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit" ]
 
+    def loadAfter = ['services']
+
     def doWithSpring = {
         try {
-            application.config.merge(new ConfigSlurper(Environment.current.name).parse(application.classLoader.loadClass('DynamicLogsWithRabbitConfig')))
+            application.config.merge(new ConfigSlurper().parse(application.classLoader.loadClass('DynamicLogsWithRabbitConfig')))
         } catch (e) {
             log.error('Unable to load DynamicLogsWithRabbitConfig')
         }
