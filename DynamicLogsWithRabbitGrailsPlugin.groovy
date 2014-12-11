@@ -12,7 +12,6 @@ class DynamicLogsWithRabbitGrailsPlugin {
     def issueManagement = [system: "GITHUB", url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit/issues"]
     def scm = [ url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit" ]
 
-    def dependsOn = [rabbitmq: "1.0.0 > *"]
     def loadAfter = ['services']
     def loadBefore = ['rabbitmq']
 
