@@ -1,7 +1,7 @@
 import grails.util.Environment
 
 class DynamicLogsWithRabbitGrailsPlugin {
-    def version = "0.3.1"
+    def version = "0.3.2"
     def grailsVersion = "2.1 > *"
     def title = "Dynamic Logs With Rabbit Plugin"
     def description = 'Allows you to dynamically change log levels on all instances listening to a particular topic via RabbitMQ Messages.'
