@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main">
@@ -25,6 +25,20 @@
             </g:hasErrors>
             <g:form action="changeLogLevel" method="POST">
                 <fieldset class="form">
+                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'msgAction', 'error')} required">
+                        <label for="msgAction">
+                            <g:message code="cmd.msgAction.label" default="Action" />
+                            <span class="required-indicator">*</span>
+                        </label>
+                        <g:select 
+                        	id="msgAction" 
+                        	name='msgAction' 
+                        	value="changeLogLevel" 
+                        	from="${actionList}" 
+                        	style="width: 10em;"
+                        	onchange="toggleFields();">
+                        </g:select>
+                    </div>
                     <div class="fieldcontain ${hasErrors(bean: cmd, field: 'appName', 'error')} required">
                         <label for="appName">
                             <g:message code="cmd.appName.label" default="App Name" />
@@ -32,17 +46,15 @@
                         </label>
                         <g:textField name="appName" required="" value="${cmd?.appName ?: applicationName}"/>
                     </div>
-                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'loggerName', 'error')} required">
+                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'loggerName', 'error')}">
                         <label for="loggerName">
                             <g:message code="cmd.loggerName.label" default="Logger Name" />
-                            <span class="required-indicator">*</span>
                         </label>
-                        <g:textField name="loggerName" required="" value="${cmd?.loggerName}"/>
+                        <g:textField name="loggerName" value="${cmd?.loggerName}"/>
                     </div>
-                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'logLevel', 'error')} required">
+                    <div class="fieldcontain ${hasErrors(bean: cmd, field: 'logLevel', 'error')}">
                         <label for="logLevel">
                             <g:message code="cmd.logLevel.label" default="Log Level" />
-                            <span class="required-indicator">*</span>
                         </label>
                         <g:select
                             id="logLevel"
@@ -58,5 +70,24 @@
                 </fieldset>
             </g:form>
         </div>
+        
+        <script>
+			function toggleFields() {
+				var msgAction = document.getElementById("msgAction").value;
+
+				if (msgAction === 'changeLogLevel') {
+					document.getElementById("logLevel").parentNode.style.display = 'block';				
+					document.getElementById("loggerName").parentNode.style.display = 'block';
+				} else if (msgAction === 'listPlugins') {
+					document.getElementById("logLevel").value = '';		
+					document.getElementById("loggerName").value = '';		
+					document.getElementById("logLevel").parentNode.style.display = 'none';				
+					document.getElementById("loggerName").parentNode.style.display = 'none';
+				} else {
+					document.getElementById("logLevel").parentNode.style.display = 'none';				
+					document.getElementById("loggerName").parentNode.style.display = 'none';
+				}
+			}
+        </script>
     </body>
 </html>

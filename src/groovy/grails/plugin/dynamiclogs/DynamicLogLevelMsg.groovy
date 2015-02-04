@@ -8,17 +8,28 @@ class DynamicLogLevelMsg {
     String appName
     String logLevel
     String loggerName
+    String msgAction
+
+    static constraints = {
+        msgAction blank: false, nullable: false
+        appName blank: false, nullable: false
+        logLevel blank: true, nullable: true
+        loggerName blank: true, nullable: true
+    }
 
     DynamicLogLevelMsg() {}
 
-    DynamicLogLevelMsg(appName, logLevel, loggerName) {
+    DynamicLogLevelMsg(msgAction, appName, logLevel = "", loggerName = "") {
+        this.msgAction = msgAction
         this.appName = appName
-        this.logLevel = logLevel
-        this.loggerName = loggerName
+        this.logLevel = logLevel ?: ""
+        this.loggerName = loggerName ?: ""
     }
 
     Map toMap(Map toAdd = null) {
-        [appName: appName, logLevel: logLevel, loggerName: loggerName] + (toAdd ?: [:])
+        loggerName = loggerName ?: ""
+        logLevel = logLevel ?: ""
+        [msgAction: msgAction, appName: appName, logLevel: logLevel, loggerName: loggerName] + (toAdd ?: [:])
     }
 
     String toString() {
