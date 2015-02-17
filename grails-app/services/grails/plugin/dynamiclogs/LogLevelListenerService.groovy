@@ -12,7 +12,7 @@ class LogLevelListenerService {
 
     private final String currentAppName = Metadata.current.getApplicationName()
 
-    def pluginManager
+    def grailsApplication
 
     void handleMessage(message) {
         log.info("Received Dynamic Logs change message - ${message}")
@@ -36,6 +36,8 @@ class LogLevelListenerService {
     }
 
     private listPlugins(msg) {
+        def pluginManager = grailsApplication.mainContext."pluginManager"
+
         def plugins = pluginManager.allPlugins
         log.info("Found ${plugins?.size()} plugins")
         log.info(plugins.toString())
