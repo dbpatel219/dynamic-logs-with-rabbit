@@ -1,7 +1,7 @@
 import grails.util.Environment
 
 class DynamicLogsWithRabbitGrailsPlugin {
-    def version = "0.4.6"
+    def version = "0.4.7"
     def grailsVersion = "2.1 > *"
     def title = "Dynamic Logs With Rabbit Plugin"
     def description = 'Allows you to dynamically change log levels on all instances listening to a particular topic via RabbitMQ Messages.'
@@ -12,9 +12,9 @@ class DynamicLogsWithRabbitGrailsPlugin {
     def issueManagement = [system: "GITHUB", url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit/issues"]
     def scm = [ url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit" ]
 
+    def dependsOn = [rabbitmq: "1.0.0 > *"]
     def loadAfter = ['services']
     def loadBefore = ['rabbitmq']
-    //def loadAfter = ['controllers', 'services', 'domains', 'hibernate', 'spring-security-core']
 
     def doWithSpring = {
         try {
