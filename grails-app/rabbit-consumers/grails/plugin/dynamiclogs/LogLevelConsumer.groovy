@@ -1,22 +1,20 @@
 package grails.plugin.dynamiclogs
 
-import grails.converters.JSON
 import grails.util.Holders
 import grails.util.Metadata
 
 import org.apache.log4j.Level
 import org.apache.log4j.LogManager
 
-class LogLevelListenerService {
-    static rabbitSubscribe = Holders.getConfig().dynamiclogging.exchange.name
+class LogLevelConsumer {
+    static rabbitConfig = [exchange: Holders.getConfig().dynamiclogging.exchange.name]
 
     private final String currentAppName = Metadata.current.getApplicationName()
 
     def grailsApplication
 
-    void handleMessage(message) {
-        log.info("Received Dynamic Logs change message - ${message}")
-        def msg = JSON.parse(message)
+    void handleMessage(Map msg) {
+        log.info("Received Dynamic Logs change message - $msg")
 
         if (msg.appName != currentAppName) {
             return
