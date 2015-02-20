@@ -17,6 +17,6 @@ grails.project.dependency.resolution = {
             export = false
         }
 
-        compile ":rabbitmq:1.0.0"
+        compile ":rabbitmq-native:3.0.4"
     }
 }

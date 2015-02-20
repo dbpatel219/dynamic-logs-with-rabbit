@@ -23,7 +23,7 @@ Usage
 
 2. A controller `LogLevelController` and view are provided to change the log levels from.  Simply go to _http[s]://yourapp.com/logLevel_
 
-3. Simply fill in the form and submit.  App Name is the application you would like to change the log level for. `LogLevelListenerService` matches Grails **application.properties "app.name"** against the one that is passed in from the form.
+3. Simply fill in the form and submit.  App Name is the application you would like to change the log level for. `LogLevelConsumer` matches Grails **application.properties "app.name"** against the one that is passed in from the form.
 
 
 **NOTE:** Highly recommend you lock down `logLevel` endpoint via Spring Security.
