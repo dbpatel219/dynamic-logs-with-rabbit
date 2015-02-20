@@ -9,7 +9,7 @@ class DynamicLogsWithRabbitGrailsPlugin {
     def license = "APACHE"
     def organization = [ name: "Experience", url: "http://www.expapp.com/" ]
     def developers = [
-        [ name: "Dharmesh Patel", email: "dbpatel@expapp.com" ]
+        [ name: "Dharmesh Patel", email: "dbpatel@expapp.com" ],
         [ name: "David Sawyer", email: "david@expapp.com" ]
     ]
     def issueManagement = [system: "GITHUB", url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit/issues"]
