@@ -4,7 +4,7 @@ import grails.util.Metadata
 
 class LogLevelController {
 
-    private static final List<String> ACTION_LIST = ['changeLogLevel', 'listPlugins']
+    private static final List<String> ACTION_LIST = ['changeLogLevel']
     private static final List<String> LOG_LEVEL_NAMES = ['OFF','FATAL','ERROR','WARN','INFO','DEBUG','TRACE','ALL']
     private static final String APP_NAME = Metadata.current.getApplicationName()
 

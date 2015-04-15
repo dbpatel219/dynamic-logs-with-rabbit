@@ -11,8 +11,6 @@ class LogLevelConsumer {
 
     private final String currentAppName = Metadata.current.getApplicationName()
 
-    def grailsApplication
-
     void handleMessage(Map msg) {
         log.info("Received Dynamic Logs change message - $msg")
 
@@ -22,23 +20,12 @@ class LogLevelConsumer {
 
         def action = msg.msgAction
         switch (action) {
-            case 'listPlugins':
-                listPlugins(msg)
-                break
             case 'changeLogLevel':
                 changeLogLevel(msg)
                 break
             default :
                 log.warn("Dynamic Log Level $action NOT supported.")
         }
-    }
-
-    private listPlugins(msg) {
-        def pluginManager = grailsApplication.mainContext."pluginManager"
-
-        def plugins = pluginManager.allPlugins
-        log.info("Found ${plugins?.size()} plugins")
-        log.info(plugins.toString())
     }
 
     private changeLogLevel(msg) {

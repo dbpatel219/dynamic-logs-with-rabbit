@@ -19,7 +19,7 @@ f<!DOCTYPE html>
             <g:hasErrors bean="${cmd}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${cmd}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
                 </g:eachError>
             </ul>
             </g:hasErrors>
@@ -35,8 +35,7 @@ f<!DOCTYPE html>
                         	name='msgAction' 
                         	value="changeLogLevel" 
                         	from="${actionList}" 
-                        	style="width: 10em;"
-                        	onchange="toggleFields();">
+                        	style="width: 10em;">
                         </g:select>
                     </div>
                     <div class="fieldcontain ${hasErrors(bean: cmd, field: 'appName', 'error')} required">
@@ -70,24 +69,5 @@ f<!DOCTYPE html>
                 </fieldset>
             </g:form>
         </div>
-        
-        <script>
-			function toggleFields() {
-				var msgAction = document.getElementById("msgAction").value;
-
-				if (msgAction === 'changeLogLevel') {
-					document.getElementById("logLevel").parentNode.style.display = 'block';				
-					document.getElementById("loggerName").parentNode.style.display = 'block';
-				} else if (msgAction === 'listPlugins') {
-					document.getElementById("logLevel").value = '';		
-					document.getElementById("loggerName").value = '';		
-					document.getElementById("logLevel").parentNode.style.display = 'none';				
-					document.getElementById("loggerName").parentNode.style.display = 'none';
-				} else {
-					document.getElementById("logLevel").parentNode.style.display = 'none';				
-					document.getElementById("loggerName").parentNode.style.display = 'none';
-				}
-			}
-        </script>
     </body>
 </html>
