@@ -3,23 +3,16 @@ package grails.plugin.dynamiclogs
 import com.budjb.rabbitmq.publisher.RabbitMessagePublisher
 import org.springframework.beans.factory.InitializingBean
 
-class LogLevelService implements InitializingBean {
+class LogLevelService {
 
     static transactional = false
 
-    def grailsApplication
     RabbitMessagePublisher rabbitMessagePublisher
-
-    private String exchangeStr
 
     def send(DynamicLogLevelMsg message) {
         rabbitMessagePublisher.send {
-            exchange = exchangeStr
+            exchange = 'logLevelExchange'
             body = message as String
         }
-    }
-
-    void afterPropertiesSet() {
-        exchangeStr = grailsApplication.config.dynamiclogging.exchange.name
     }
 }

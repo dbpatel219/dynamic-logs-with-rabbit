@@ -7,7 +7,7 @@ import org.apache.log4j.Level
 import org.apache.log4j.LogManager
 
 class LogLevelConsumer {
-    static rabbitConfig = [exchange: Holders.getConfig().dynamiclogging.exchange.name]
+    static rabbitConfig = [exchange: 'logLevelExchange']
 
     private final String currentAppName = Metadata.current.getApplicationName()
 
