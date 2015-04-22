@@ -1,7 +1,7 @@
 import grails.util.Environment
 
 class DynamicLogsWithRabbitGrailsPlugin {
-    def version = "0.5.3"
+    def version = "0.5.4"
     def grailsVersion = "2.1 > *"
     def title = "Dynamic Logs With Rabbit Plugin"
     def description = 'Allows you to dynamically change log levels on all instances listening to a particular topic via RabbitMQ Messages.'
@@ -9,7 +9,7 @@ class DynamicLogsWithRabbitGrailsPlugin {
     def license = "APACHE"
     def organization = [ name: "Experience", url: "http://www.expapp.com/" ]
     def developers = [
-        [ name: "Dharmesh Patel", email: "dbpatel@expapp.com" ],
+        [ name: "Dharmesh Patel", email: "dbpatel219@gmail.com" ],
         [ name: "David Sawyer", email: "david@expapp.com" ]
     ]
     def issueManagement = [system: "GITHUB", url: "https://github.com/dbpfindexp/dynamic-logs-with-rabbit/issues"]
