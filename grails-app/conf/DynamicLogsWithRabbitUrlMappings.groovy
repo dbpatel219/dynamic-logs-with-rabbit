@@ -1,4 +1,4 @@
-class DynamicLoggingUrlMappings {
+class DynamicLogsWithRabbitUrlMappings {
 
     static mappings = { applicationContext ->
         // By Default the controller will be disabled
