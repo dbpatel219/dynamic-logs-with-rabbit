@@ -55,17 +55,17 @@ bootRun {
 bootRepackage.enabled = false
 
 grailsPublish {
-    user = 'dbpatel219@gmail.com'
-    key = 'key'
+    userOrg = 'dharmeshbpatel'
+
     githubSlug = 'foo/bar'
     license {
         name = 'Apache-2.0'
     }
     title = "Dynamic Logs With Rabbit"
-    desc = ""
-    developers = [johndoe:"John Doe"]
-    portalUser = ""
-    portalPassword = ""
+    desc = "Change Application Log Levels via Rabbit MQ messages at Runtime."
+    developers = ["dbpatel219":"Dharmesh Patel", "david@expapp.com":"David Sawyer"]
+//    portalUser = ""
+//    portalPassword = ""
 }
 
 
