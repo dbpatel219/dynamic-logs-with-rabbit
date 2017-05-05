@@ -55,8 +55,8 @@ bootRun {
 bootRepackage.enabled = false
 
 grailsPublish {
-    userOrg = 'dharmeshbpatel'
-
+    //user = 'dbpatel219' // Set BINTRAY_USER as env var
+    //password = ''       // Set BINTRAY_KEY as env var
     githubSlug = 'foo/bar'
     license {
         name = 'Apache-2.0'
