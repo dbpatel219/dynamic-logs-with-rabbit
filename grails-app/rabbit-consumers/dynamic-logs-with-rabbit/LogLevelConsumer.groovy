@@ -1,4 +1,4 @@
-package dynamiclogswithrabbit
+package dynamic-logs-with-rabbit
 
 import ch.qos.logback.classic.Level
 import com.budjb.rabbitmq.consumer.MessageContext

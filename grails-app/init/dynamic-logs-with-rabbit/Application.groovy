@@ -1,4 +1,4 @@
-package dynamiclogswithrabbit
+package dynamic-logs-with-rabbit
 
 import grails.boot.*
 import grails.boot.config.GrailsAutoConfiguration
