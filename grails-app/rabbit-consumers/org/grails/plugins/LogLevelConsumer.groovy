@@ -1,4 +1,4 @@
-package dynamic-logs-with-rabbit
+package org.grails.plugins
 
 import ch.qos.logback.classic.Level
 import com.budjb.rabbitmq.consumer.MessageContext

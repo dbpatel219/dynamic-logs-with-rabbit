@@ -1,4 +1,4 @@
-package dynamic-logs-with-rabbit
+package org.grails.plugins
 
 import grails.plugins.*
 import grails.util.Environment

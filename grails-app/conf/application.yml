@@ -2,7 +2,7 @@
 grails:
     profile: web-plugin
     codegen:
-        defaultPackage: dynamiclogswithrabbit
+        defaultPackage: org.grails.plugins
     spring:
         transactionManagement:
             proxies: false

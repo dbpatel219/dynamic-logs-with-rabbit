@@ -1,4 +1,4 @@
-package dynamic-logs-with-rabbit
+package org.grails.plugins
 
 class UrlMappings {
 
