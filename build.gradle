@@ -60,6 +60,10 @@ grailsPublish {
     license {
         name = 'Apache-2.0'
     }
+
+    websiteUrl = 'https://github.com/dbpatel219/dynamic-logs-with-rabbit'
+    issueTrackerUrl = 'https://github.com/dbpatel219/dynamic-logs-with-rabbit/issues'
+    vcsUrl = 'https://github.com/dbpatel219/dynamic-logs-with-rabbit'
     title = "Dynamic Logs With Rabbit"
     desc = "Change Application Log Levels via Rabbit MQ messages at Runtime."
     developers = ["dbpatel219":"Dharmesh Patel", "david@expapp.com":"David Sawyer"]
