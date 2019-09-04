@@ -63,10 +63,7 @@ grailsPublish {
     title = "Dynamic Logs With Rabbit"
     desc = "Change Application Log Levels via Rabbit MQ messages at Runtime."
     developers = ["dbpatel219":"Dharmesh Patel", "david@expapp.com":"David Sawyer"]
-//    portalUser = ""
-//    portalPassword = ""
 }
-
 
 assets {
     packagePlugin = true
